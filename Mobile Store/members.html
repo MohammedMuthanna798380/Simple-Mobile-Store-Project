@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mobile Store -Members</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #members-list {
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 50px;
+            margin-left: 23%;
+            width: 50%;
+        }
+
+        #members-list li {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            background-color: brown;
+            color: white;
+            border-radius: 25px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #members-list li:hover {
+            background-color: blue;
+            margin-top: -20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <h2>Mobile Store</h2>
+                </li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a id="active" href="members.html">Members</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div style="height: 100px;"></div>
+    <h1>Group Members:</h1>
+    <ul id="members-list">
+        <li>عواطف عليان الحويطي</li>
+        <li>كادي محمد العنزي</li>
+        <li>هاله عبدالله العنزي</li>
+        <li>راما خالد البلوي</li>
+    </ul>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get the list and shuffle its children
+            var list = document.getElementById("members-list");
+            var listItems = Array.from(list.children);
+
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+            }
+
+            shuffleArray(listItems);
+
+            // Remove the existing list items and append the shuffled ones
+            list.innerHTML = "";
+            listItems.forEach(function (item) {
+                list.appendChild(item);
+            });
+        });
+
+    </script>
+
+    <footer>
+        <p>&copy; 2023 Mobile Store. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
